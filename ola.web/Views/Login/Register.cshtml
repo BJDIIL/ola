@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "注册";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>注册 - 沙漠领航员</title>
+    <link rel="stylesheet" href="/Content/css/weui.min.css">
+    <link rel="stylesheet" href="/Content/css/example.css">
+</head>
+<body ontouchstart="">
+    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+    <div class="container" id="container">
+        <div class="page js_show">
+
+            <div class="page__hd">
+                <h1 class="page__title" style="text-align: center;">沙漠领航员</h1>
+
+                @*<h2 class="page__title" style="text-align: center;">{$msg}</h2>*@
+            </div>
+            <div class="weui-cells weui-cells_form">
+                <input type="hidden" id="authCode" value="@ViewBag.AuthCode" />
+                <input type="hidden" id="openId" value="@ViewBag.OpenId" />
+                @*<div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" name="name" type="text" placeholder="请输入姓名" value="" />
+                        </div>
+                    </div>*@
+                <div class="weui-cell weui-cell_vcode">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">手机号</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="tel" name="mobile" value="" placeholder="请输入手机号">
+                    </div>
+                    <div class="weui-cell__ft">
+                        <button class="weui-vcode-btn" id="vcode">获取验证码</button>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="number" name="vcode" value="" placeholder="请输入验证码">
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-btn-area">
+                <button class="weui-btn weui-btn_primary" id="register">注册</button>
+            </div>
+        </div>
+        <div id="toast" style="display: none;">
+            <div class="weui-mask_transparent"></div>
+            <div class="weui-toast">
+                <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+
+                <p class="weui-toast__content">已完成</p>
+            </div>
+        </div>
+    </div>
+    <script src="/Content/js/jquery-2.2.2.min.js"></script>
+    <script src="/Content/js/zepto.min.js"></script>
+    <script src="/Content/js/common.js?v=@DateTime.Now.Ticks"></script>
+    <script type="text/javascript" src="/Content/js/register.js?v=@DateTime.Now.Ticks"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1019947792a76990a8a2f6167e6f2cb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,114 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@using ola.core.Enum
+@model PagedList<ola.model.WeiXinUser>
+
+@{
+    ViewBag.Title = "会员列表";
+}
+
+<style type="text/css">
+    td { text-align: center; }
+</style>
+
+<div class="padding border-bottom">
+    <ul class="search" style="padding-left:10px;">
+
+        <li>
+            <form>
+                <input name="searchKey" value="@ViewBag.searchKey" class="input" style="width:250px; line-height:17px;display:inline-block" type="text" placeholder="请输入搜索关键字">
+                <button class="button border-main icon-search" type="submit">搜索</button>
+            </form>
+        </li>
+    </ul>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            昵称
+        </th>
+        <th>
+            手机号
+        </th>
+        <th>
+            微信头像
+        </th>
+        <th>
+            注册时间
+        </th>
+
+        <th>
+            性别
+        </th>
+        <th>
+            国家
+        </th>
+        <th>
+            省份
+        </th>
+        <th>
+            城市
+        </th>
+
+        <th>操作</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.headimgurl)" alt="微信头像" style="width:60px; height:auto;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+
+            <td>
+                @{
+                    if (item.sex == 1)
+                    {
+                        @("男")
+                    }
+                    else if (item.sex == 2)
+                    {
+                        @("女")
+                    }
+                    else
+                    {
+                        @("保密")
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.unionid)
+                </td>*@
+
+            <td>
+                <a data-method="post" class="button border-red icon-trash-o" href="/Admin/WeiXinUsers/DeleteConfirmed/@item.Id">@(item.state == (int)WeiXinUserStateEnum.NotAccess ? "启用" : "禁用")</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="pagedList" style="margin:0 auto;text-align:center">
+    @Html.PagedListPager(Model, pageNumber => Url.Action("Index",
+        new { pageNumber, searchKey = ViewBag.searchKey }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+</div>

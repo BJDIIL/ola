@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="olaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuthCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsExpired" Type="bit" Nullable="false" />
+          <Property Name="QrCodeUrl" Type="nvarchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“ola.dbo.Log”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="LotteryOpenHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LotteryId" Type="int" Nullable="false" />
+          <Property Name="QiHao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OpenNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OpenTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Source" Type="int" Nullable="false" />
+          <Property Name="Forecast1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Forecast2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Forecast3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Used" Type="bit" Nullable="false" />
+          <Property Name="CurrentForecastNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ForecastFrom" Type="nvarchar" MaxLength="150" />
+          <Property Name="UsedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LotteryOpenTimes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LotteryId" Type="int" Nullable="false" />
+          <Property Name="PreQiHao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QiHao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NextQiHao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OpenTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeiXinUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="openid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+          <Property Name="sex" Type="int" />
+          <Property Name="province" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="country" Type="nvarchar" MaxLength="50" />
+          <Property Name="headimgurl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="unionid" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="AuthCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="int" />
+        </EntityType>
+        <EntityContainer Name="olaModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthCode" EntityType="Self.AuthCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LotteryOpenHistory" EntityType="Self.LotteryOpenHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LotteryOpenTimes" EntityType="Self.LotteryOpenTimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeiXinUser" EntityType="Self.WeiXinUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Log].[Id] AS [Id], 
+    [Log].[Date] AS [Date], 
+    [Log].[Thread] AS [Thread], 
+    [Log].[Level] AS [Level], 
+    [Log].[Logger] AS [Logger], 
+    [Log].[Message] AS [Message], 
+    [Log].[Exception] AS [Exception]
+    FROM [dbo].[Log] AS [Log]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="olaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OlaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LotteryOpenTimes" EntityType="olaModel.LotteryOpenTime" />
+          <EntitySet Name="Logs" EntityType="olaModel.Log" />
+          <EntitySet Name="LotteryOpenHistories" EntityType="olaModel.LotteryOpenHistory" />
+          <EntitySet Name="AuthCodes" EntityType="olaModel.AuthCode" />
+          <EntitySet Name="Accounts" EntityType="olaModel.Account" />
+          <EntitySet Name="WeiXinUsers" EntityType="olaModel.WeiXinUser" />
+        </EntityContainer>
+        <EntityType Name="LotteryOpenTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="LotteryId" Type="Int32" Nullable="false" />
+          <Property Name="PreQiHao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QiHao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NextQiHao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logger" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LotteryOpenHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="LotteryId" Type="Int32" Nullable="false" />
+          <Property Name="QiHao" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpenTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Source" Type="Int32" Nullable="false" />
+          <Property Name="Forecast1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Forecast2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Forecast3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Used" Type="Boolean" Nullable="false" />
+          <Property Name="CurrentForecastNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ForecastFrom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UsedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AuthCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsExpired" Type="Boolean" Nullable="false" />
+          <Property Name="QrCodeUrl" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeiXinUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="openid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="Int32" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="headimgurl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="unionid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="AuthCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="olaModelStoreContainer" CdmEntityContainer="OlaEntities">
+          <EntitySetMapping Name="LotteryOpenTimes">
+            <EntityTypeMapping TypeName="olaModel.LotteryOpenTime">
+              <MappingFragment StoreEntitySet="LotteryOpenTimes">
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+                <ScalarProperty Name="NextQiHao" ColumnName="NextQiHao" />
+                <ScalarProperty Name="QiHao" ColumnName="QiHao" />
+                <ScalarProperty Name="PreQiHao" ColumnName="PreQiHao" />
+                <ScalarProperty Name="LotteryId" ColumnName="LotteryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="olaModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LotteryOpenHistories">
+            <EntityTypeMapping TypeName="olaModel.LotteryOpenHistory">
+              <MappingFragment StoreEntitySet="LotteryOpenHistory">
+                <ScalarProperty Name="UsedBy" ColumnName="UsedBy" />
+                <ScalarProperty Name="ForecastFrom" ColumnName="ForecastFrom" />
+                <ScalarProperty Name="CurrentForecastNumber" ColumnName="CurrentForecastNumber" />
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="Forecast3" ColumnName="Forecast3" />
+                <ScalarProperty Name="Forecast2" ColumnName="Forecast2" />
+                <ScalarProperty Name="Forecast1" ColumnName="Forecast1" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+                <ScalarProperty Name="OpenNumber" ColumnName="OpenNumber" />
+                <ScalarProperty Name="QiHao" ColumnName="QiHao" />
+                <ScalarProperty Name="LotteryId" ColumnName="LotteryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthCodes">
+            <EntityTypeMapping TypeName="olaModel.AuthCode">
+              <MappingFragment StoreEntitySet="AuthCode">
+                <ScalarProperty Name="QrCodeUrl" ColumnName="QrCodeUrl" />
+                <ScalarProperty Name="IsExpired" ColumnName="IsExpired" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="olaModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeiXinUsers">
+            <EntityTypeMapping TypeName="olaModel.WeiXinUser">
+              <MappingFragment StoreEntitySet="WeiXinUser">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="AuthCode" ColumnName="AuthCode" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="unionid" ColumnName="unionid" />
+                <ScalarProperty Name="headimgurl" ColumnName="headimgurl" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

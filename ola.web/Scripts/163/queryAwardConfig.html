@@ -1,0 +1,46 @@
+(function(window,Core){
+try{
+var config = Core.sscAwardConfig = {
+	//中一注各种玩法的加奖奖金方案
+	plan : {
+		star1_fs : 0,
+		star2_fs : 0,
+		star2_hz : 0,
+		star2_zx : 0,
+		star2_zxhz : [0, 0],
+		star2_zxfw : [0, 0],
+		star3_fs : 0,
+		star3_z3 : 0,
+		star3_z6 : 0,
+		star4_fs : [0, 0],
+		star5_fs : 0,
+		star5_tx : [0, 0, 0],
+		dxds_fs : 0,
+		ren1_fs : 0,
+		ren2_fs : 0
+	},
+    //加奖期次列表（三天内）
+    periods : [],
+    //加奖提示文案
+    tip : {
+		star1_fs : "",
+		star2_fs : "",
+		star2_zx : "",
+		star3_fs : "人气旺",
+		star3_z3 : "",
+		star3_z6 : "",
+		star4_fs : "",
+		star5_fs : "奖金高",
+		star5_tx : "",
+		dxds_fs : "易中奖",
+		ren1_fs : "",
+		ren2_fs : ""
+	}
+};
+//扩展到window上，以兼容旧版代码读取
+window.plusAwardPeriodArray = config.periods;
+}catch(e){
+	window.plusAwardPeriodArray = [];
+    Core.sscAwardConfig = undefined;
+}
+})(window,Core);

@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title name="title">提示信息</title>
+    <link rel="stylesheet" href="~/Content/css/weui.min.css">
+    <link rel="stylesheet" href="~/Content/css/example.css">
+</head>
+<body ontouchstart="">
+    <div class="container" id="container">
+        <div class="weui-msg">
+            <div class="icon-box">
+                <i class="weui-icon-info weui-icon_msg"></i>
+            </div>
+            <br />
+            <br />
+            <div class="weui-msg__text-area">
+                <p class="weui-msg__desc">@ViewBag.Info</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1019947792a76990a8a2f6167e6f2cb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</body>
+</html>
+

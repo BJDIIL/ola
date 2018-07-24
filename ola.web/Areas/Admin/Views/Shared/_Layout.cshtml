@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>@ViewBag.Title - 沙漠领航员</title>
+    <link rel="stylesheet" href="/Content/admin/css/pintuer.css">
+    <link rel="stylesheet" href="/Content/admin/css/admin.css">
+    @RenderSection("css", false)
+</head>
+<body id="body-wrapper" style="background-color:#f2f9fd;">
+    <div class="header bg-main">
+        <div class="logo margin-big-left fadein-top">
+            <h1><img src="/Content/admin/images/y.jpg" class="radius-circle rotate-hover" height="50" alt="" />后台管理中心</h1>
+        </div>
+        <div class="head-l">
+
+            @*<a class="button button-little bg-red" href="{:U('Member/logout')}">
+                    <span class="icon-power-off"></span> 退出登录
+                </a>*@
+        </div>
+    </div>
+    <div class="leftnav">
+        <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
+        @*<volist name="__MENU__" id="menu">
+                <h2 id="{$menu.url}"><span class="icon-user"></span>{$menu.name}</h2>
+                <if condition="$menu.sub_menus neq null">
+                    <ul>
+                        <volist name="menu['sub_menus']" id="sub_menu">
+                            <li>
+                                <a href="{$sub_menu.url|U}" target="_self" id="{$sub_menu.url|remove_slash}">
+                                    <span class="icon-caret-right"></span>{$sub_menu.name}
+                                </a>
+                            </li>
+                        </volist>
+                    </ul>
+                </if>
+            </volist>*@
+        <h2 id="LotteryOpenHistories"><span class="icon-user"></span>开奖号码</h2>
+        <ul>
+            <li>
+                <a href="/Admin/LotteryOpenHistories/Index?lotteryId=2" target="_self" id="LotteryOpenHistoriesIndex">
+                    <span class="icon-caret-right"></span>开奖号码
+                </a>
+            </li>
+            @*<li>
+                    <a href="/Admin/LotteryOpenHistories/Index?lotteryId=3" target="_self" id="LotteryOpenHistories">
+                        <span class="icon-caret-right"></span>广东11选5
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/LotteryOpenHistories/Index?lotteryId=4" target="_self" id="LotteryOpenHistories">
+                        <span class="icon-caret-right"></span>上海11选5
+                    </a>
+                </li>*@
+        </ul>
+        <h2 id="WeiXinUsers"><span class="icon-user"></span>会员管理</h2>
+        <ul>
+            <li>
+                <a href="/Admin/WeiXinUsers/Index" target="_self" id="WeiXinUsersIndex">
+                    <span class="icon-caret-right"></span>会员列表
+                </a>
+            </li>
+
+        </ul>
+
+        <h2 id="AuthCode"><span class="icon-user"></span>邀请码管理</h2>
+        <ul>
+            <li>
+                <a href="/Admin/AuthCode/Index" target="_self" id="AuthCodeIndex">
+                    <span class="icon-caret-right"></span>邀请码
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <ul class="bread">
+        <li><a href="/Admin/LotteryOpenHistories/Index" target="right" class="icon-home"> 首页</a></li>
+
+    </ul>
+    <div id="main-content" class="admin">
+        @RenderBody()
+    </div>
+
+    <script src="/Content/admin/js/jquery.js"></script>
+    <script src="/Content/admin/js/pintuer.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".leftnav h2").click(function () {
+                $(this).next().slideToggle(200);
+                $(this).toggleClass("on");
+            })
+            $(".leftnav ul li a").click(function () {
+                $("#a_leader_txt").text($(this).text());
+                $(".leftnav ul li a").removeClass("on");
+                $(this).addClass("on");
+            })
+
+            var current_controller = '@ViewContext.RouteData.Values["controller"]';
+            $('#' + current_controller).trigger('click');
+            var current_url = '@ViewContext.RouteData.Values["controller"]@ViewContext.RouteData.Values["action"]';
+            $('#' + current_url).trigger('click');
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e1019947792a76990a8a2f6167e6f2cb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</body>
+</html>

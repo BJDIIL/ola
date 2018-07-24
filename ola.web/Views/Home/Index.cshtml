@@ -1,0 +1,422 @@
+﻿@{
+    ViewBag.Title = "购彩大厅";
+}
+@section css {
+    <link href="~/Content/css/lotteryHall.css" rel="stylesheet" />
+}
+@*<div id="couplet4" style="position:fixed;right:50%;margin-right:495px;z-index:12;">
+        <div style="width:236px;height:380px">
+            <div class="pimgBox">
+                <a href="http://m3.rrzcp8.com/activity/adapt/index.html?activityId=tgnbx" target="_blank" class="linkpngAd2017060519LC33569733" style="position:absolute;display:block;width:236px;height:380px;right:0;top:0;z-index:1;background:url(http://pimg1.126.net/caipiao_info/images/headFigure/indexPngAd/2017060519LC33569733.png) no-repeat 0 0;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=http://pimg1.126.net/caipiao_info/images/headFigure/indexPngAd/2017060519LC33569733.png);"></a>
+                <a class="iDialogClose" href="javascript:;" hidefocus="true" style="border:none;position:absolute;display:block;width:34px;height:33px;right:2%;top:2%;z-index:2;background:url(http://pimg1.126.net/caipiao/img/popularize/dialogClose.png) no-repeat 0 0;_background-image:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=http://pimg1.126.net/caipiao/img/popularize/dialogClose.png);"></a>
+            </div>
+        </div>
+    </div>*@
+<article id="docBody" class="pageLotteryHall">
+    @*<h2 class="tit clearfix"><span>热销彩种推荐</span></h2>
+            <ul id="tuijian" class="clearfix">
+                <li id="tj_ssq" gid="ssq">
+                    <span class="szImg szImg_ssq"></span>
+                    <a href="/order/ssq/" class="buyNow" target="_blank"></a>
+                    <span class="jrkj"></span>
+                    <p>
+                        <a href="/award/ssq/" target="_blank">开奖公告</a>
+                        <a href="/zhuihao/custom_ssq.html" target="_blank">机选包月</a>
+                        <a href="http://trend.caipiao.163.com/ssq/" target="_blank">走势图</a>
+                    </p>
+                </li>
+                <li id="tj_d11" gid="d11">
+                    <span class="szImg szImg_d11"></span>
+                    <a href="/order/11xuan5/" class="buyNow" target="_blank"></a>
+
+                    <p>
+                        <a href="/award/11x5.html" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/11xuan5/" target="_blank">走势图</a>
+                    </p>
+                </li>
+                <li id="tj_jczq" gid="jczq_spf_p" class="jczq">
+
+                    <span class="szImg szImg_jczq"></span>
+                    <a href="/order/preBet_jczqspfmixp.html" class="buyNow" target="_blank"></a>
+
+                    <p>
+                        <a href="/award/jczqspfp.html?selectedDate=" target="_blank">开奖公告</a>
+                    </p>
+                </li>
+                <li id="tj_kuai3" gid="kuai3">
+                    <span class="szImg szImg_kuai3"></span>
+                    <a href="/order/kuai3/" class="buyNow" target="_blank"></a>
+
+
+                    <p>
+                        <a href="/award/kuai3.html" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/kuai3/" target="_blank">走势图</a>
+                    </p>
+                </li>
+            </ul>
+            <div class="phoneAppDownload">
+                <i></i>
+                <a href="/outside/getclient_cp.html?from=gcdt" target="_blank">广告推荐：送红包 赢大奖</a>
+                <em></em>
+            </div>
+        <h2 class="tit redTit">福彩、体彩</h2>
+            <ul class="allList qh clearfix">
+                <li>
+                    <span class="cz_logo cz_ssq"></span>
+                    <h3 gid="ssq">双色球<em>今日开奖</em></h3>
+                    <p>彩民最爱，<span class="c_ba2636">2元赢取1000万</span></p>
+                    <div><span class="c_ba2636">彩民最爱，2元赢取1000万</span><br>每周二、四、日开奖</div>
+                    <a href="/order/ssq/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/ssq/" target="_blank">开奖公告</a>
+                        <a href="/zhuihao/custom_ssq.html" target="_blank">机选包月</a>
+                        <a href="http://trend.caipiao.163.com/ssq/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li class="">
+                    <span class="cz_logo cz_x3d"></span>
+                    <h3 gid="x3d" id="cz_x3d">3D</h3>
+                    <p>简单3位数 轻松赢千元</p>
+                    <div><span class="c_ba2636">简单3位数 轻松赢千元</span><br>每日21:15开奖</div>
+                    <a href="/order/3d/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/3d/" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/x3d/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_qlc"></span>
+                    <h3 gid="qlc">七乐彩</h3>
+                    <p>大奖500万，每周一、三、五开奖</p>
+                    <div><span class="c_ba2636">2元赢取大奖500万</span><br>每周一、三、五开奖</div>
+                    <a href="/order/qlc/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/qlc/" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/qlc/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_qxc"></span>
+                    <h3 gid="qxc">七星彩</h3>
+                    <p>大奖500万，每周二、五、日开奖</p>
+                    <div><span class="c_ba2636">2元赢取大奖500万</span><br>每周二、五、日开奖</div>
+                    <a href="/order/qxc/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/qxc/" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/qxc/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_pl5"></span>
+                    <h3 gid="pl5">排列五</h3>
+                    <p>天天开奖，2元赢10万</p>
+                    <div><span class="c_ba2636">天天开奖，2元赢10万</span><br>每日20:30开奖</div>
+                    <a href="/order/pl5/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/pl5/" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/pl5/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_dlt"></span>
+                    <h3 gid="dlt" id="cz_dlt">超级大乐透</h3>
+                    <p>奖金最丰厚，3元赢1600万</p>
+                    <div><span class="c_ba2636">单注最高奖金1600万元</span><br>每周一、三、六开奖</div>
+                    <a href="/order/dlt/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/dlt/" target="_blank">开奖公告</a>
+                        <a href="/zhuihao/custom_dlt.html" target="_blank">机选包月</a>
+                        <a href="http://trend.caipiao.163.com/dlt/" target="_blank">走势图</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_pl3"></span>
+                    <h3 gid="pl3">排列三</h3>
+                    <p>天天开奖，3位数字赢千元</p>
+                    <div><span class="c_ba2636">天天开奖，3位数字赢千元</span><br>每日20:30开奖</div>
+                    <a href="/order/pl3/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/pl3/" target="_blank">开奖公告</a>
+                        <a href="http://trend.caipiao.163.com/pl3/" target="_blank">走势图</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="phoneAppDownload">
+                <i></i>
+                <a href="/outside/getclient_cp.html?from=gcdt" target="_blank">广告推荐：送红包 赢大奖</a>
+                <em></em>
+            </div>*@
+    <h2 class="tit redTit">高频彩</h2>
+    <ul class="allList qh clearfix">
+        @*<li>
+                <span class="cz_logo cz_d11"></span>
+                <h3 gid="d11" id="cz_d11">11选5</h3>
+                <p><span class="c_ba2636">返奖率59%</span>，10分钟一期</p>
+                <div><span class="c_ba2636">返奖率59%</span><br>10分钟一期，每天78期</div>
+                <a href="/order/11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li class="">
+                <span class="cz_logo cz_jxd11"></span>
+                <h3 gid="jxd11">老11选5</h3>
+                <p>每天78期，任猜1-8个号都中奖</p>
+                <div>任选玩法&nbsp;中奖简单<br>10分钟一期，单注可中1170元</div>
+                <a href="/order/jx11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/jx11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/jx11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li>
+                <span class="cz_logo cz_gdd11"></span>
+                <h3 gid="gdd11" id="cz_gdd11">粤11选5</h3>
+                <p>猜对1个号就中奖，每天84期</p>
+                <div>任选玩法&nbsp;中奖简单<br>每天84期，单注可中奖1170元</div>
+                <a href="/order/gd11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/gd11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/gd11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li>
+                <span class="cz_logo cz_hljd11"></span>
+                <h3 gid="hljd11" id="hyd11">好运11选5</h3>
+                <p>猜中一个号就中奖，10分钟一期</p>
+                <div><span class="c_ba2636">猜中一个号就中奖</span><br>返奖率59%，10分钟一期</div>
+                <a href="/order/hlj11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/hlj11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/hlj11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li>
+                <span class="cz_logo cz_cqd11"></span>
+                <h3 gid="cqd11" id="cqd11">重庆11选5</h3>
+                <p>10分钟一期，每天85期</p>
+                <div>猜对1个号就中奖，返奖率59%</div>
+                <a href="/order/cq11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/cq11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/cq11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li>
+                <span class="cz_logo cz_zjd11"></span>
+                <h3 gid="zjd11" id="zjd11">易乐11选5</h3>
+                <p>猜对1个号就中奖，每天80期</p>
+                <div>10分钟一期，返奖率59%</div>
+                <a href="/order/zj11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/zj11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/zj11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li class="">
+                <span class="cz_logo cz_lnd11"></span>
+                <h3 gid="lnd11" id="lnd11">辽宁11选5</h3>
+                <p>猜对1个号就中奖，每天83期</p>
+                <div>10分钟一期，返奖率59%</div>
+                <a href="/order/ln11xuan5/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/ln11xuan5/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/ln11xuan5/" target="_blank">走势图</a>
+                </div>
+            </li>
+            <li>
+                <span class="cz_logo cz_ssc"></span>
+                <h3 gid="jxssc" id="cz_jxssc">新时时彩</h3>
+                <p>10分钟一期，最高奖11.6万</p>
+                <div><span class="c_ba2636">返奖率59%</span><br>10分钟一期，最高奖11.6万</div>
+                <a href="/order/jxssc/" class="buyNow" target="_blank"></a>
+                <div class="linkBox">
+                    <a href="/award/jxssc/" target="_blank">开奖公告</a>
+                    <a href="http://trend.caipiao.163.com/jxssc/jiben-2xing.html" target="_blank">走势图</a>
+                </div>
+            </li>*@
+        <li>
+            <span class="cz_logo cz_ssc"></span>
+            <h3 gid="ssc">重庆时时彩</h3>
+            <p>独有夜间版，每天120期</p>
+            <div><span class="c_ba2636">独有夜间版</span><br>每天120期，最高奖10万</div>
+            <a href="/order/cqssc/" class="buyNow" target="_blank"></a>
+            @*<div class="linkBox">
+                            <a href="/award/cqssc/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/cqssc/jiben-2xing.html" target="_blank">走势图</a>
+                        </div>
+                </li>
+                <li>
+                        <span class="cz_logo cz_klpk"></span>
+                        <h3 gid="klpk">快乐扑克</h3>
+                        <p>3张扑克牌 简单中大奖</p>
+                        <div><span class="c_ba2636">10分钟一期，每天79期</span><br>猜豹子可中6400元</div>
+                        <a href="/order/kuailepuke/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/kuailepuke/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/kuailepuke/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kuai3"></span>
+                        <h3 gid="kuai3">快3</h3>
+                        <p>10分钟一期，快乐猜大小</p>
+                        <div>10分钟一期，快乐猜大小</div>
+                        <a href="/order/kuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/kuai3.html" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/kuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_gxkuai3"></span>
+                        <h3 gid="gxkuai3" id="cz_gxkuai3">新快3</h3>
+                        <p>10分钟一期，每天78期</p>
+                        <div>10分钟一期，每天78期</div>
+                        <a href="/order/gxkuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/gxkuai3/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/gxkuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kuai3"></span>
+                        <h3 gid="oldkuai3" id="cz_oldkuai3">江苏快3</h3>
+                        <p>10分钟一期，快乐猜大小</p>
+                        <div>10分钟一期，快乐猜大小</div>
+                        <a href="/order/jskuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/jskuai3/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/jskuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kuai3"></span>
+                        <h3 gid="nmgkuai3" id="cz_nmgkuai3">易快3</h3>
+                        <p>10分钟一期，每天73期</p>
+                        <div>2元能包号，返奖率59%</div>
+                        <a href="/order/nmgkuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/nmgkuai3/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/nmgkuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kuai3"></span>
+                        <h3 gid="hbkuai3" id="cz_hbkuai3">湖北快3</h3>
+                        <p>10分钟一期，每天78期</p>
+                        <div>2元能包号，返奖率59%</div>
+                        <a href="/order/hbkuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/hbkuai3/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/hbkuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kuai3"></span>
+                        <h3 gid="ahkuai3" id="cz_ahkuai3">好运快3</h3>
+                        <p>10分钟一期，每天80期</p>
+                        <div>2元能包号，返奖率59%</div>
+                        <a href="/order/ahkuai3/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/ahkuai3/" target="_blank">开奖公告</a>
+                            <a href="http://trend.caipiao.163.com/ahkuai3/" target="_blank">走势图</a>
+                        </div>
+                    </li>
+                    <li class="">
+                        <span class="cz_logo cz_klc"></span>
+                        <h3 gid="klc" id="cz_klc">快乐彩</h3>
+                        <p>猜对1个号就中奖，每天80期</p>
+                        <div>10分钟一期，返奖率59%</div>
+                        <a href="/order/zjkuaile12/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/zjkuaile12/" target="_blank">开奖公告</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="cz_logo cz_kl8"></span>
+                        <h3 gid="kl8">快乐8</h3>
+                        <p>5分钟1期，最高奖500万</p>
+                        <div><span class="c_ba2636">开奖频率最高，5分钟1次 </span><br>每天179期，最高奖500万</div>
+                        <a href="/order/kl8/" class="buyNow" target="_blank"></a>
+                        <div class="linkBox">
+                            <a href="/award/kl8/" target="_blank">开奖公告</a>
+                        </div>
+                    </li>*@
+    </ul>
+    @*<div class="phoneAppDownload">
+                <i></i>
+                <a href="/outside/getclient_cp.html?from=gcdt" target="_blank">广告推荐：送红包 赢大奖</a>
+                <em></em>
+            </div>
+        <h2 class="tit redTit">体育竞技</h2>
+            <ul class="allList qh clearfix">
+                <li class="jczq">
+                    <span class="cz_logo cz_jczq"></span>
+                    <h3 gid="jczq">竞彩足球</h3>
+                    <p><span class="c_ba2636">73%返奖率</span>，足球迷首选</p>
+                    <div><span class="c_ba2636">73%超高返奖率</span><br>玩法多样，足球迷首选</div>
+                    <a href="/order/jczq/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/jczqspfp.html?selectedDate=" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+                <li class="jclq">
+                    <span class="cz_logo cz_jclq"></span>
+                    <h3 gid="jclq">竞彩篮球</h3>
+                    <p>覆盖NBA比赛，73%返奖率</p>
+                    <div><span class="c_ba2636">覆盖NBA赛事</span><br>73%返奖率，篮球迷最爱</div>
+                    <a href="/order/jclq/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/jclqsfp.html?selectedDate=" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+                <li class="football_dc">
+                    <span class="cz_logo cz_dczq"></span>
+                    <h3 gid="football_dcspf">足球单场</h3>
+                    <p>足球竞猜，猜中一场就有奖</p>
+                    <div><span class="c_ba2636">猜中一场也能中奖</span><br>返奖率65%，中奖容易</div>
+                    <div class="btnBox">
+                        <a href="/order/dc/" class="buyNow" target="_blank"></a>
+                    </div>
+                    <div class="linkBox">
+                        <a href="/award/dcspf/" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_football_sfc"></span>
+                    <h3 gid="football_sfc">胜负彩</h3>
+                    <p>14场比赛，猜胜负，最高奖500万</p>
+                    <div><span class="c_ba2636">14场比赛，猜胜负</span><br>单注最高奖金500万</div>
+                    <a href="/order/sfc/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/sfc/" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_football_9"></span>
+                    <h3 gid="football_9">任选九场</h3>
+                    <p>任意九场比赛，最高奖500万</p>
+                    <div><span class="c_ba2636">任意九场比赛，猜输赢</span><br>单注最高奖金500万</div>
+                    <a href="/order/rx9/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/rx9/" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="cz_logo cz_football_dcsfgg"></span>
+                    <h3 gid="football_dcsfgg">胜负过关</h3>
+                    <p>众多精彩体育赛事</p>
+                    <div><span class="c_ba2636">猜3场即可投注</span><br>简单易中，赛事众多</div>
+                    <a href="/order/sfgg/" class="buyNow" target="_blank"></a>
+                    <div class="linkBox">
+                        <a href="/award/sfgg/" target="_blank">开奖公告</a>
+                    </div>
+                </li>
+            </ul>*@
+</article>
+@section scripts    {
+    <script src="~/Scripts/163/lotteryHall.js"></script>
+}
